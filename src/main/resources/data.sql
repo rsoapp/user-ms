@@ -12,4 +12,4 @@ values ('brane@gmail.com', 'Ulica Prekomorskih brigad 7', '943 345 543');
 
 insert
 into app_user (email, address, phone_number)
-values ('nabalancifranci42@gmail.com', 'Staro selo 23', '031 342 523');
+values ('nabalancifranci42@gmail.com', 'Staro selo 23', '+38640464840');

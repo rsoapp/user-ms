@@ -27,17 +27,4 @@ public class UserService {
     public User getUserByUsername(String email) {
         return userRepository.getUserByEmail(email);
     }
-
-    public User saveUser(UserDto userDto) {
-        // TODO
-        return null;
-    }
-
-    public void deleteUserById(Integer userId) {
-        // TODO delete ads and images also
-    }
-
-    public void deleteUserByUsername(String username) {
-        // TODO
-    }
 }
