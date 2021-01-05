@@ -38,22 +38,22 @@ public class UserController {
         }
     }
 
-    @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody UserDto userDto) {
-        try {
-            return new ResponseEntity<>(userService.saveUser(userDto), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
-    @DeleteMapping("{id}")
-    public ResponseEntity<Void> deleteUser(@PathVariable Integer id) {
-        try {
-            userService.deleteUserById(id);
-            return new ResponseEntity<>(HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+//    @PostMapping
+//    public ResponseEntity<User> createUser(@RequestBody UserDto userDto) {
+//        try {
+//            return new ResponseEntity<>(userService.saveUser(userDto), HttpStatus.OK);
+//        } catch (Exception e) {
+//            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
+//
+//    @DeleteMapping("{id}")
+//    public ResponseEntity<Void> deleteUser(@PathVariable Integer id) {
+//        try {
+//            userService.deleteUserById(id);
+//            return new ResponseEntity<>(HttpStatus.OK);
+//        } catch (Exception e) {
+//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
 }
