@@ -3,12 +3,13 @@ package rsoapp.userms.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import rsoapp.userms.model.dto.UserDto;
+import rsoapp.userms.model.dto.UserProfile;
 import rsoapp.userms.model.entity.User;
 import rsoapp.userms.service.UserService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/v1/user/")
@@ -29,15 +30,29 @@ public class UserController {
         }
     }
 
-    @GetMapping("{id}")
-    public ResponseEntity<User> getUser(@PathVariable Integer id) {
+    @GetMapping("{userId}")
+    public ResponseEntity<User> getUser(@PathVariable Integer userId) {
         try {
-            return new ResponseEntity<>(userService.getUserById(id), HttpStatus.OK);
+            Optional<User> user = userService.getUserById(userId);
+            if(user.isPresent()) {
+                return new ResponseEntity<>(user.get(), HttpStatus.OK);
+            }
+            else {
+                return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+            }
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
+    @GetMapping("profile/{userId}")
+    public ResponseEntity<UserProfile> getUserProfile(@PathVariable Integer userId) {
+        try {
+            return userService.getUserProfile(userId);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 //    @PostMapping
 //    public ResponseEntity<User> createUser(@RequestBody UserDto userDto) {
 //        try {

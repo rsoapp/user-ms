@@ -5,14 +5,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class UserDto {
+@NoArgsConstructor
+public class AdImagesDto {
 
-    private Integer id;
-    private String email;
-    private String address;
-    private String phoneNumber;
+    public List<ImageDto> images;
 }
