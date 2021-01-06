@@ -1,7 +1,6 @@
 package rsoapp.userms.service;
 
 import org.springframework.stereotype.Service;
-import rsoapp.userms.model.dto.UserDto;
 import rsoapp.userms.model.entity.User;
 import rsoapp.userms.repository.UserRepository;
 
